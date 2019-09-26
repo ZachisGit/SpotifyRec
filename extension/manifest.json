@@ -1,0 +1,25 @@
+{
+	"manifest_version": 2,
+	"name": "SpotifyRec",
+	"description": "SpotifyRec",
+	"version": "2",
+	"permissions": ["tabs","activeTab", "http://*/*",
+					"https://*/*","storage","webRequestBlocking",
+					"webRequest","contextMenus"],
+	 "background":{
+        "scripts":["background.js"],
+		"persistent": true
+        },
+	"content_scripts" : [{
+        "matches" : [ "http://*/*", "https://*/*" ],
+        "js" : ["sys.js","spotify.js","jquery-3.2.1.min.js","start.js"],
+		"all_frames": true
+    }], 
+	"web_accessible_resources": ["lib/jquery.js","lib/script_exchange_lib.js"] ,
+	"icons": {
+          "48": "icon_48.png",
+          "128": "icon_128.png" },
+		  "browser_action": {
+		"default_icon": "icon_48.png"
+	}
+}
